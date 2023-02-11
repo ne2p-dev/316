@@ -1,0 +1,14 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block main %}
+    <div>
+        <h3>Status :</h3>
+        <ul>
+            <li>Il existe {{ news }} actualités <a href="?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CNewsCrudController" class="fas fa-folder"></a></li>
+            <li>Il existe {{ comments }} commentaires <a href="?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CCommentsCrudController" class="fas fa-comments"></a></li>
+            <li>Il existe {{ users }} utilisateurs <a href="?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUsersCrudController" class="fas fa-user"></a></li>
+        </ul>
+    </div>
+{% endblock %}
