@@ -13,6 +13,9 @@
         </div>
         <div>
             <nav>
+                <div class="mb-3">
+                    <a href="{{ path('app_news_index') }}">Actualités</a>
+                </div>
                 {% if app.user %}
                     {% if app.user.roles == ["ROLE_ADMIN"] %}
                         <div class="mb-3">

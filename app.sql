@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 03 fév. 2023 à 20:15
+-- Généré le : sam. 25 fév. 2023 à 16:02
 -- Version du serveur : 5.7.35-0ubuntu0.18.04.2
 -- Version de PHP : 8.0.27
 
@@ -31,9 +31,7 @@ CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `body` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
-  `updated_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)'
+  `body` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -81,10 +79,17 @@ CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
-  `updated_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)'
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `news`
+--
+
+INSERT INTO `news` (`id`, `author_id`, `title`, `description`) VALUES
+(1, 1, 'Test', 'Ceci est un Test !'),
+(2, 1, 'Test 2', 'Ceci est la suite du Test !'),
+(3, 1, 'Test 3', 'Ceci est le troisième Test !');
 
 -- --------------------------------------------------------
 
@@ -115,8 +120,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `roles`, `password`) VALUES
-(1, 'Admin', '["ROLE_ADMIN"]', '$2y$13$KrjiVIU.SOhUVn5cU2fY9uw.uwiUJyBH4QUa70/Oz5WoULQM3w6pm'),
-(2, 'UserTest', '["ROLE_USER"]', '$2y$13$E2oZb/jKmfiA3xM/o/pKZ.GGGUR3UEht1RhZp//vcTXAe5Ag1THau');
+(1, 'Admin', '[\"ROLE_ADMIN\"]', '$2y$13$KrjiVIU.SOhUVn5cU2fY9uw.uwiUJyBH4QUa70/Oz5WoULQM3w6pm'),
+(2, 'UserTest', '[\"ROLE_USER\"]', '$2y$13$E2oZb/jKmfiA3xM/o/pKZ.GGGUR3UEht1RhZp//vcTXAe5Ag1THau');
 
 --
 -- Index pour les tables déchargées
@@ -186,7 +191,7 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT pour la table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `users`

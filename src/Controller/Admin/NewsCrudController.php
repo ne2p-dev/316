@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\News;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\{IdField, TextField, TextEditorField};
 
 class NewsCrudController extends AbstractCrudController
 {
@@ -12,7 +13,7 @@ class NewsCrudController extends AbstractCrudController
         return News::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -21,5 +22,5 @@ class NewsCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-    */
+
 }

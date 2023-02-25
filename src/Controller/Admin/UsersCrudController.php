@@ -7,7 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\{Crud, KeyValueStore};
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
-use EasyCorp\Bundle\EasyAdminBundle\Field\{IdField, TextField};
+use EasyCorp\Bundle\EasyAdminBundle\Field\{IdField, TextField, ArrayField};
 use Symfony\Component\Form\Extension\Core\Type\{PasswordType, RepeatedType};
 use Symfony\Component\Form\{FormBuilderInterface, FormEvents};
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -28,6 +28,7 @@ class UsersCrudController extends AbstractCrudController
         $fields = [
             IdField::new('id')->hideOnForm(),
             TextField::new('username'),
+            ArrayField::new('roles'),
         ];
 
         $password = TextField::new('password')

@@ -6,4 +6,15 @@
 
 {% block body %}
     {# Affichage des trois articles #}
+    {% for new in news %}
+        <div>
+            <h2>{{ new.title }}</h2>
+            <div>
+                <p>
+                    Auteur : <i>{{ new.author.username }}</i>
+                    <p>{{ new.description }}</p>
+                </p>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

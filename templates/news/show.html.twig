@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualité{% endblock %}
+
+{% block body %}
+    <h1>{{ news.title }}</h1>
+
+    <p>{{ news.description }}</p>
+
+    <a href="{{ path('app_news_index') }}">Retour sur nos actualités</a>
+{% endblock %}
